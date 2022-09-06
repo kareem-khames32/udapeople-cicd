@@ -1,6 +1,6 @@
 version: 2.1
 commands:
-     install_awscli:
+   install_awscli:
        description: install aws version 2 
        steps:
          - run:
@@ -9,7 +9,7 @@ commands:
                 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                 unzip awscliv2.zip
                 sudo ./aws/install
-     install_ansible:
+   install_ansible:
        description: install Ansible version 2
        steps:
           - run:
@@ -19,8 +19,7 @@ commands:
                 sudo apt install software-properties-common
                 sudo add-apt-repository --yes --update ppa:ansible/ansible
                 sudo apt install ansible
-
-     destroy-environment:
+   destroy-environment:
         description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
         parameters:
           Workflow_ID:
@@ -35,6 +34,7 @@ commands:
                   aws s3 rm s3://udapeople-<parameters.Workflow_ID>> --recursive
                   aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.Workflow_ID >>
 
+     
 #   revert-migrations:
 #     description: Revert the last migration if successfully run in the current workflow.
 #     parameters:
