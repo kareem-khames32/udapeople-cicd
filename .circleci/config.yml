@@ -1,6 +1,12 @@
 version: 2.1
-#commands:
-
+commands:
+     install_awscli:
+       description: install aws version 2 
+       steps:
+         - run:
+             name: Install Aws CLI v2
+             command: |
+                msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
 #   destroy-environment:
 #     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
 #     parameters:
@@ -131,10 +137,15 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - install_awscli
       - run:
           name: Ensure back-end infrastructure exists
           command: |
-            aws cloudformation deploy --template-file .circleci/files/backend.yml --stack-name "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"  --tags project=udapeople
+            aws cloudformation deploy \
+              --template-file .circleci/files/backend.yml \
+              --stack-name "udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" \
+              --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}"  \
+              --tags project=udapeople
 
       - run:
           name: Ensure front-end infrastructure exist
