@@ -48,10 +48,11 @@ commands:
               SUCCESS=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.workflow_id >>)
               if(( $SUCCESS == 1 )); 
               then
-                cd ~/project/backend
-                npm install
-                npm run migrations:revert
+               cd ~/project/backend
+               npm install
+               npm run migrations:revert
               fi
+              
 jobs:
   build-frontend:
     docker:
@@ -225,7 +226,7 @@ jobs:
               fi 
       - destroy-environment 
       - revert-migrations 
-
+      
 #   deploy-frontend:
 #     docker:
 #       # Docker image here that supports AWS CLI
