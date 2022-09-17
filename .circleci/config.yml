@@ -45,13 +45,13 @@ commands:
             name: Revert migrations
             when: on_fail
             command: |
-               SUCCESS=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.workflow_id >>)
-               if(( $SUCCESS == 1 )); 
-               then
+              SUCCESS=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_<< parameters.Workflow_ID >>)
+              if(( $SUCCESS==1 )); 
+              then
                 cd ~/project/backend
                 npm install
-                npm run migrations:revert
-               fi
+                npm run migration:revert
+              fi
 jobs:
   build-frontend:
     docker:
@@ -225,6 +225,7 @@ jobs:
               fi 
       - destroy-environment 
       - revert-migrations 
+      
 #   deploy-frontend:
 #     docker:
 #       # Docker image here that supports AWS CLI
