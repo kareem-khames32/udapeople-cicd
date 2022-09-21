@@ -265,7 +265,7 @@ jobs:
             echo "${API_URL}"
             cat frontend/.env
       - run:
-          name: Deploy frontend objects
+          name: Deploy frontend objects 
           command: |
              cd frontend
              npm run build
