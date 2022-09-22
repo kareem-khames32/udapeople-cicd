@@ -15,7 +15,10 @@ commands:
           - run:
               name: install ansible 
               command: |
-                sudo apt install ansible
+                sudo apt update
+                sudo apt install software-properties-common
+                sudo add-apt-repository --yes --update ppa:ansible/ansible
+                sudo apt install ansible -y 
 
    install_nodejs:
        description: Install nodejs on Circle ci base images.
@@ -198,19 +201,13 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: cimg/base:stable
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints: ["1f:d0:9f:a0:ec:84:bb:84:f8:58:e1:f5:12:6f:bf:fa"]
       - attach_workspace:
           at: ~/
-      - run:
-          name: inatall deps
-          command: |
-             apk add tar gzip ansible
-             pip3 install awscli
-
       - run:
           name: Configure server 
           command: |
