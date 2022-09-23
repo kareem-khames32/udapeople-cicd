@@ -1,0 +1,11 @@
+cloudfront take more time to updated to last update then i take screen shot to s3 name and cloud front arn and i attach this links to show that 
+cloudfront updated with last v s3 and the update of website take more time
+
+cloudfront orgin domain
+udapeople-5819cf9.s3.amazonaws.com
+
+s3 website url
+http://udapeople-5819cf9.s3-website-us-west-2.amazonaws.com
+
+s3 name 
+udapeople-5819cf9

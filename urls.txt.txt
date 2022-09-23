@@ -1,4 +1,4 @@
 [URL01]
 https://github.com/kareem-khames32/udapeople-cicd
 [URL02]
-http://udapeople-e2e4a08.s3.us-west-2.amazonaws.com/index.html#/employees
+http://udapeople-5819cf9.s3.us-west-2.amazonaws.com/index.html#/employees
