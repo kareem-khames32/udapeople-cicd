@@ -2,7 +2,7 @@ cloudfront take more time to updated to last update then i take screen shot to s
 cloudfront updated with last v s3 and the update of website take more time
 
 cloudfront orgin domain
-udapeople-5819cf9.s3.amazonaws.com
+http://udapeople-5819cf9.s3.us-west-2.amazonaws.com/index.html#/employees
 
 s3 website url
 http://udapeople-5819cf9.s3-website-us-west-2.amazonaws.com
